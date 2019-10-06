@@ -1,0 +1,128 @@
+body{
+   font-family: "PT Sans", sans-serif;
+
+}
+.sidebar {
+	background:white; 
+}
+.content{
+   background: rgb(240, 238, 238);
+   /* padding-top: 10px; */
+}
+.bg-header{
+   display: block;
+   position: relative;
+   z-index: 10;
+   background-color:#FF4F45;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   margin-bottom: 0;
+   font-weight: 500;
+   font-size: 36px;
+   box-shadow: -1px 1px 2px 1px #FF4F45;
+}
+
+
+li{
+   list-style:none;
+   margin-bottom: 5px;
+}
+a, button{ 
+   color: #919596 ;
+}
+.content a, .content button, .btn{
+   color: rgb(49, 49, 49) ;
+
+}
+button, .btn{
+   color: black;
+   
+   border:none;
+   border-radius: 4px;
+   padding: 3px;
+   padding-left: 15px;
+   padding-right: 15px;
+    /* for some lumine when button/links hovered */
+    -webkit-box-shadow: inset -14px 17px 75px 27px rgba(207,201,207,1);
+-moz-box-shadow: inset -14px 17px 75px 27px rgba(207,201,207,1);
+box-shadow: inset -14px 17px 75px 27px rgb(197, 195, 197);
+
+}
+a:hover, a.active{
+   text-shadow: 1px 1px 2px black;
+   text-decoration: none
+}
+.buttonSidebar{
+   padding: 4px;
+   padding-left: 5px;
+   padding-right: 5px;
+   font-size : 13px;
+}
+.btn:active, .btn:focus, .sidebar .btn.active{
+   -webkit-box-shadow: inset -14px 17px 75px 27px rgba(207,201,207,1);
+-moz-box-shadow: inset -14px 17px 75px 27px rgba(207,201,207,1);
+box-shadow: inset -14px 17px 75px 27px rgb(172, 169, 172);
+
+}
+/* without this color be blue */
+/* a:hover, button:hover{ 
+   color: rgb(255, 253, 253);
+} */
+button:hover{
+   box-shadow: none;
+}
+.arrow{
+   font-size: 22px;
+   font-weight: 900;
+}
+.content a.active, .arrow.active{
+   text-shadow:none;
+}
+.content a.active:hover, .arrow.active:hover{
+   text-shadow: 1px 1px 2px black;
+
+}
+
+
+
+label{
+   font-size: 17px;
+   font-weight: normal;
+}
+input, textarea{
+   font-size: 15px;
+}
+label span{
+   font-size: 14px;
+}
+textarea{
+   border-color: rgba(197, 195, 197, 0.288);
+}
+.form-inp{
+
+   border-radius: 1px;
+   border-width: 1.5px;
+   border-color: rgba(197, 195, 197, 0.288);
+   padding-left: 10px!important;
+}
+
+
+.post .arrow, .addPost .arrow{
+  font-size: 14px; 
+}
+
+.addPost .bg-white{
+   min-height: 250px
+}
+.data{
+   font-size: 13px;
+}
+
+.cell-size{
+   width: 15%;
+}
+
+/* dropdown menu */
+.dropdown-toggle{
+   cursor: pointer;
+}
