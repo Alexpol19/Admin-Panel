@@ -3,7 +3,7 @@ You can see the [demo](ссылка) here.
 ## How to use
 ```bash
 # First, Need to install and run 
-[MongoDB](https://www.mongodb.com/)
+(https://www.mongodb.com/)
 
 # To install Api Go to 
 # root folder and install dependencies
