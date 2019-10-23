@@ -1,4 +1,3 @@
-
 let initialState={
    // categories
    categoriesData:[
@@ -8,11 +7,15 @@ let initialState={
    // date for new loaded Photo
    newPhotoExemple: '',
    allPhoto:[],
-  
+   // date for Search
+   query: '',
 }
 
 const categoryesReducer=(state=initialState, action)=>{
    switch(action.type){
+      case 'UPDATE_QUERY':{
+         return {...state, query:action.query};
+      }
       case 'UPDATE_CATEG_NAME':{
          return {...state, newCategName: action.newCategName};
       }

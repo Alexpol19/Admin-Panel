@@ -1,6 +1,6 @@
 import React from 'react';
 import CategoryLink from './CategoryLink';
-import ReverseCategory from './ReverseCategory';
+import RecursiveCategory from './ReverseCategory';
 
 export default class Categoryes extends React.Component {
    
@@ -10,7 +10,7 @@ export default class Categoryes extends React.Component {
       let link=this.props.link+'/'+category.name
       if(category.categories.length !=0){
          // if exists subCategory need parent component for working dropdown
-         return <ReverseCategory key={category._id} category={category} link={link}/>
+         return <RecursiveCategory key={category._id} category={category} link={link}/>
       } else {
          return <li key={category._id} >
          <CategoryLink key={category._id}   name={category.name} link={link}/>

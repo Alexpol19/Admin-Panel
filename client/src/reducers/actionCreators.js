@@ -14,6 +14,13 @@ export const actionCreator_updatePosts=(categId, posts)=>{
    }
 }
 
+export const actionCreator_UpdateQuery=(text)=>{
+   return{
+      type: 'UPDATE_QUERY',
+      query: text,
+   }
+}
+
 export const actionCreator_UpdateCategName=(text)=>{
    return{
       type: 'UPDATE_CATEG_NAME',

@@ -19,7 +19,10 @@ import { actionCreator_UpdateCategName, actionCreator_addCategory,
    actionCreator_updatePosts, actionCreator_EditPost, 
    actionCreator_setCateg,
    actionCreator_UpdatePhotoExemple,
-   actionCreator_UpdateAllPhoto} from "../reducers/actionCreators";
+   actionCreator_UpdateAllPhoto,
+   actionCreator_UpdateQuery} from "../reducers/actionCreators";
+import Search from '../components/Search/Search';
+import Result from '../components/Search/Result';
 
 
 class MainPageAdm extends React.Component {
@@ -32,18 +35,35 @@ class MainPageAdm extends React.Component {
     }
   }
 
+
   render() {
     // link for Categories routes
     let link=''    
-      // name of the categoies(level1) for verifying on identicals
-      let categNames=this.props.categories.map((category)=>{
-        return category.name
-      })
+   // name of the categoies(level1) for verifying on identicals
+   let categNames=this.props.categories.map((category)=>{
+      return category.name
+   })
+   // function which return Route from Search
+   let postRoutes=[]
+   let getPostRoute=(route)=>{
+      postRoutes.push(route)
+   }
 
     return (
       <div >
-        <h3 className="text-center bg-header">Blog</h3>
-        <Container fluid="true"
+            <Row className="align-items-center bg-header" noGutters="true">
+               <Col>
+                  <h3 className="text-left ml-4 text-light">Admin Lite</h3>
+               </Col>
+               <Col sm={3} className="pr-3">
+                  {/* Search the posts */}
+                  <Search updateQuery={this.props.updateQuery} />
+               </Col>
+               
+            </Row>
+         
+        
+        <Container fluid="true" className=""
         >
          <Row>
             <Col sm={3} className="py-3 sidebar">
@@ -59,12 +79,25 @@ class MainPageAdm extends React.Component {
                addCategory={this.props.addCategory} 
                sendCategory={this.sendCategory}/>
                }} />
+               {/* content when url is '/' */}
                <Route exact path='/' render={()=>{
                   return <div className="text-center mt-3">
                      <h4>This Admin Panel created to add, edit, delete some posts, categoryes with text, photo.</h4>
-                     <h5 >&#8592; To start choose some category in the Sidebar or choose button 'Add Category'</h5>
+                     <h5 className="mb-4">&#8592; To start choose some category in the Sidebar or choose button 'Add Category'</h5>
+                     
                   </div>
                }}/>
+               {/* Answers Result */}
+               <Route exact path="/search" render={()=>{
+                  return <Result query={this.props.query} updateQuery={this.props.updateQuery}
+                  categories={this.props.categories}  getPostRoute={getPostRoute}
+                  />
+               }} />
+               {/* Route for Post in the Search */}
+               {postRoutes}
+               
+
+               
 
                {/* get categories all levels */}
                <CategoriesRoutes 
@@ -99,12 +132,16 @@ let mapStateToProps=(state)=>{
       newCategName: state.categories.newCategName,
       photoExemple: state.categories.newPhotoExemple,
       allPhoto: state.categories.allPhoto,
+      query: state.categories.query,
    }
 
 }
 // get actions from redux
 let mapDispatchToProps=(dispatch)=>{
    return {
+      updateQuery:text=>{
+         dispatch(actionCreator_UpdateQuery(text))
+      },
       updateCategName:(text)=>{
          dispatch(actionCreator_UpdateCategName(text))
       },

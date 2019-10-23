@@ -2,7 +2,7 @@ import React from 'react';
 // request from sending Category
 import {sendNewCateg} from '../api/requests'
 
-import {NavLink} from 'react-router-dom';
+import {NavLink, Route} from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
 class GetCategory extends React.Component{
@@ -34,7 +34,8 @@ class GetCategory extends React.Component{
       this.props.updateCategName(text);
     }
     // Checking categories on identical names and empty name
-    let CheckingCategName=()=>{
+    let CheckingCategName=(event)=>{
+      event.preventDefault()
       var er=0; // if one of this checking be good sending category doesn'n maked
       if(this.props.categNames){
         for(var i=0;i<this.props.categNames.length;i++){
@@ -75,25 +76,28 @@ class GetCategory extends React.Component{
                 <h3>Add category:</h3>
               </Row>
               <Container className="bg-white p-4">
-                <Row noGutters="true">
-                  <label className="w-100">Title
-                    <br/>
-                    <input ref={nameCateg} onChange={updateCategName}  placeholder='Add category name' 
-                    value={this.props.newCategName} className="w-100 form-inp p-1"/>
-                    <span style={this.state.identic} className="text-danger">Identical name category</span>
-                    <span style={this.state.noname} className="text-danger">Write Category name</span>
+                  <form onSubmit={(event)=>{
+                    CheckingCategName(event)}} >
+                    <Row noGutters="true">
+                      <label className="w-100">Title
+                        <br/>
+                        <input ref={nameCateg} onChange={updateCategName}  placeholder='Add category name' 
+                        value={this.props.newCategName} className="w-100 form-inp p-1"/>
+                        <span style={this.state.identic} className="text-danger">Identical name category</span>
+                        <span style={this.state.noname} className="text-danger">Write Category name</span>
 
-                  </label>
-                </Row>
-                <Row noGutters="true">
-                  <label className="w-100">Description
-                    <textarea ref={descrCateg}  placeholder='Add description' 
-                    className="w-100 form-inp p-1"/>
-                  </label>
-                </Row>
-                <Row noGutters="true">
-                <NavLink to={this.props.parentLink} onClick={CheckingCategName} className="btn">Add</NavLink>
-                </Row>
+                      </label>
+                    </Row>
+                    <Row noGutters="true">
+                      <label className="w-100">Description
+                        <textarea ref={descrCateg}  placeholder='Add description' 
+                        className="w-100 form-inp p-1"/>
+                      </label>
+                    </Row>
+                    <Row noGutters="true">
+                    <NavLink to={this.props.parentLink} onClick={CheckingCategName} className="btn">Add</NavLink>
+                    </Row>
+                  </form>
               </Container>
          </div>
       );

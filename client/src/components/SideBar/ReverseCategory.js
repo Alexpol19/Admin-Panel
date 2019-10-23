@@ -2,7 +2,7 @@ import React from 'react';
 import CategoryLink from './CategoryLink';
 import Categoryes from './Categoryes';
 
-export default class ReverseCategory extends React.Component{
+export default class RecursiveCategory extends React.Component{
    constructor(props){
       super(props);
       this.state={
