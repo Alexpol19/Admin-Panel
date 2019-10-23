@@ -1,5 +1,5 @@
 # Simple admin-panel on React+express+MongoDB
-You can see the [demo](ссылка) here.
+You can see the [demo](https://codesandbox.io/s/nifty-sammet-8ueun) here.
 ## How to use
 ```bash
 # First, Need to install and run 
