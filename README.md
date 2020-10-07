@@ -1,5 +1,5 @@
 # Simple admin-panel on React+Node.js+MongoDB
-You can see the [demo](https://codesandbox.io/s/nifty-sammet-8ueun) here.
+*To run on your localhost you need node.js v. v10.14.2, npm v. 6.4.1
 ## How to use
 ```bash
 # First, Need to install and run 
